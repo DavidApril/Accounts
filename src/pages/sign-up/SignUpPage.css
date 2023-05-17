@@ -1,0 +1,37 @@
+.signup-page {
+	display: flex;
+	height: calc(100vh - 80px - 50px);
+	overflow: hidden;
+}
+
+.signup-page > * {
+	width: 50%;
+	height: 100%;
+}
+
+.signup-page-text {
+	display: grid;
+	place-content: center;
+	animation: TextInLeft 1.4s ease-in-out both;
+}
+
+.signup-page-text span {
+	font-size: 36px;
+	text-align: center;
+}
+
+.signup-page-text span b {
+	font-size: 64px;
+}
+
+.signup-page-text span h2 {
+	margin: 0;
+	color: var(--primary-color);
+	font-size: 64px;
+}
+
+.signup-form {
+	display: grid;
+	place-content: center;
+}
+

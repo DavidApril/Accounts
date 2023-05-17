@@ -1,0 +1,32 @@
+	<svg
+		width='37'
+		height='41'
+		viewBox='0 0 37 41'
+		fill='none'
+		xmlns='http://www.w3.org/2000/svg'
+		style={style}
+		className={className}>
+		<rect
+			width='22.1694'
+			height='22.1694'
+			rx='11.0847'
+			fill='#FFC85E'
+		/>
+		<rect
+			x='23.2397'
+			y='15.2893'
+			width='13.7603'
+			height='13.7603'
+			rx='6.88017'
+			fill='#002333'
+		/>
+		<rect
+			x='5.35126'
+			y='23.2397'
+			width='16.8182'
+			height='16.8182'
+			rx='8.40909'
+			fill='#BD00FF'
+		/>
+	</svg>
+);

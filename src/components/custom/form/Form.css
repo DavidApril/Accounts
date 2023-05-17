@@ -1,0 +1,62 @@
+.form {
+	width: 100%;
+	display: grid;
+	box-shadow: 0 0 60px var(--box-shadow-color);
+	padding: 50px;
+	border-radius: 40px;
+	width: 400px;
+	gap: 10px;
+	animation: EnterForms 0.5s 1s both;
+}
+
+.form span {
+	text-align: center;
+}
+
+.form span > a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--primary-color);
+  transition: all ease 0.3s;
+}
+.form span > a:hover {
+  color: var(--secondary-color);
+}
+
+.form h3 {
+	padding: 30px 0;
+}
+
+.form h3 > span {
+	font-size: 14px;
+  color: #acacac;
+}
+
+.form h3 > b {
+	color: var(--secondary-color);
+  font-size: 28px;
+}
+
+.form button {
+	padding: 10px 24px;
+	font-size: 18px;
+	border-radius: 12px;
+	font-weight: bold;
+	color: #fff;
+	border: none;
+	justify-self: center;
+	margin: 10px 20px;
+  transition: all 0.2s ease-in;
+  background-color: #000;
+	outline: none;
+}
+
+.form button:hover {
+  background-color: var(--secondary-color);
+	scale: 1.2;
+}
+
+.form button:focus {
+	scale: 1.2;
+	background-color: var(--third-color);
+}

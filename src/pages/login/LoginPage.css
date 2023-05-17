@@ -1,0 +1,42 @@
+.login-page {
+	display: flex;
+	height: calc(100vh - 80px - 50px);
+	overflow: hidden;
+}
+
+.login-page > * {
+	width: 50%;
+	height: 100%;
+}
+
+.login-page-text {
+	display: grid;
+	place-content: center;
+	animation: TextInRight 1.4s ease-in-out both;
+}
+
+.login-page-text span {
+	font-size: 36px;
+	text-align: center;
+}
+
+.login-page-text span b {
+	font-size: 64px;
+}
+
+.login-page-text span h2 {
+	margin: 0;
+	color: var(--primary-color);
+	font-size: 64px;
+}
+
+.login-form {
+	display: grid;
+	place-content: center;
+}
+
+mark {
+	background-color: transparent;
+	color: var(--secondary-color);
+	text-align: right;
+}

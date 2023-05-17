@@ -1,0 +1,48 @@
+@keyframes TextInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-100vw);
+	}
+	60% {
+		transform: translateX(50px);
+	}
+	80% {
+		transform: translateX(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes TextInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(100vw);
+	}
+	60% {
+		transform: translateX(-50px);
+	}
+	80% {
+		transform: translateX(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes EnterForms {
+	0% {
+		scale: 0;
+	}
+	60% {
+		scale: 1.2;
+	}
+	80% {
+		scale: 0.8;
+	}
+	100% {
+		scale: 1;
+	}
+}
