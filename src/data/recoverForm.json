@@ -1,0 +1,17 @@
+[
+	{
+		"type": "email",
+		"name": "email",
+		"placeholder": "Enter your email",
+		"label": "Email",
+		"value": "",
+		"validations": [
+			{
+				"type": "required"
+			},
+			{
+				"type": "email"
+			}
+		]
+	}	
+]

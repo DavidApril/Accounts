@@ -29,8 +29,8 @@ export const PublicRoutes: Route[] = [
 		name: 'Sign up',
 	},
 	{
-		to: '/login',
-		path: 'login',
+		to: '/login/',
+		path: '/login/*',
 		Component: LoginPage,
 		name: 'Login',
 	},

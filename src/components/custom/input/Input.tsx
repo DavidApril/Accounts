@@ -1,6 +1,6 @@
 import { useField, ErrorMessage } from 'formik';
 
-import './Input.css'
+import './Input.css';
 
 interface Props {
 	label: string;
@@ -22,8 +22,9 @@ export const CustomInput = ({ className, ...props }: Props) => {
 				{...field}
 				{...props}
 			/>
+
 			<ErrorMessage
-				className='error'
+				className='error-message'
 				name={props.name}
 				component='span'
 			/>

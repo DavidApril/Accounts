@@ -1,10 +1,14 @@
-import { Link } from 'react-router-dom';
-import { CustomForm } from '../../components/custom/form/Form';
-import { CustomInput } from '../../components/custom/input/Input';
-import { GoogleButton } from '../../components/google-sesion/Google';
 import './LoginPage.css';
+import loginForm from '../../data/LoginForm.json';
+import { CustomForm, GoogleButton, CustomInput } from '../../components';
+import { Link, Route, Routes } from 'react-router-dom';
+import { RecoverPasswordPage } from './pages/RecoverPasswordPage';
 
-const initalValues = [{}];
+const initalValues: { [x: string]: any } = {};
+
+for (const input of loginForm) {
+	initalValues[input.name] = input.value;
+}
 
 export const LoginPage = () => {
 	return (
@@ -16,7 +20,7 @@ export const LoginPage = () => {
 			</div>
 			<div className='login-form'>
 				<CustomForm
-					initalValues={[{}]}
+					initalValues={initalValues}
 					buttonName='Login'
 					type='login'>
 					{() => (
@@ -25,24 +29,39 @@ export const LoginPage = () => {
 								Hey, <b>Hello!</b> <br />
 								<span>Continue with Google or enter your details.</span>
 							</h3>
+
 							<GoogleButton />
+
 							<span>or</span>
-							<CustomInput
-								initialValues={initalValues}
-								label='Username'
-								name='username'
-								placeholder='bruceWayne27'
-							/>
-							<CustomInput
-								label='Password'
-								name='password'
-								placeholder='***********'
-							/>
-							<mark>Forgot password?</mark>
+
+							{loginForm.map(({ label, name, type, placeholder }) => {
+								if (type === 'text' || type === 'password' || type === 'email') {
+									return (
+										<CustomInput
+											key={name}
+											label={label}
+											name={name}
+											type={type}
+											placeholder={placeholder}
+										/>
+									);
+								}
+							})}
+
+							<mark>
+								<Link to='recover-password'>Forgot password?</Link>
+							</mark>
 						</>
 					)}
 				</CustomForm>
 			</div>
+
+			<Routes>
+				<Route
+					path='recover-password'
+					element={<RecoverPasswordPage />}
+				/>
+			</Routes>
 		</section>
 	);
 };

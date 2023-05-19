@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navegation } from '../navegation/Navegation';
-import { Navbar } from '../components/navbar/Navbar';
-import { Footer } from '../components/footer/Footer';
+import { Navbar, Footer } from '../components';
 
 export const Layout = () => {
 	return (

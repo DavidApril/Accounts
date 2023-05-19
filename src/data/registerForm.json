@@ -1,0 +1,49 @@
+[
+	{
+		"type": "text",
+		"name": "username",
+		"placeholder": "Bruce Wayne",
+		"label": "Username",
+		"value": "",
+		"validations": [
+			{
+				"type": "required"
+			},
+			{
+				"type": "max-length",
+				"value": 15
+			}
+		]
+	},
+	{
+		"type": "email",
+		"name": "email",
+		"placeholder": "batman27@gotham.com",
+		"label": "Email",
+		"value": "",
+		"validations": [
+			{
+				"type": "required"
+			},
+			{
+				"type": "email"
+			}
+		]
+	},
+	{
+		"type": "password",
+		"name": "password",
+		"placeholder": "**********",
+		"label": "Password",
+		"value": "",
+		"validations": [
+			{
+				"type": "required"
+			},
+			{
+				"type": "min-length",
+				"value": 6
+			}
+		]
+	}
+]

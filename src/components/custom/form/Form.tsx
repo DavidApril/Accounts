@@ -1,19 +1,15 @@
-import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
-
 import './Form.css';
-import { Link } from 'react-router-dom';
-
+import validationSchema from './validations';
+import { TypeMessage } from '..';
 interface Props {
 	buttonName: string;
 	className?: string;
 	style?: React.CSSProperties;
-	children: (Args: any) => JSX.Element;
+	children: (Args: any) => JSX.Element | React.ReactElement[];
 	initalValues: { [x: string]: any };
-	type?: 'login' | 'register';
+	type: 'login' | 'register' | 'recover';
 }
-
-const validationSchema = Yup.object();
 
 export const CustomForm = ({ buttonName, className, style, children, initalValues, type }: Props) => {
 	return (
@@ -21,7 +17,7 @@ export const CustomForm = ({ buttonName, className, style, children, initalValue
 			<Formik
 				initialValues={initalValues}
 				onSubmit={(values) => {
-					console.log(values);
+					// console.log(values);
 				}}
 				validationSchema={validationSchema}>
 				{(formik) => (
@@ -29,20 +25,11 @@ export const CustomForm = ({ buttonName, className, style, children, initalValue
 						noValidate
 						style={style}
 						className={`${className} form`}>
-						{children({ formik })}
+						{typeof children === 'function' ? children(formik) : children}
 
 						<button type='submit'>{buttonName}</button>
-						{type === 'login' ? (
-							<span>
-								Don't have account?
-								<Link to='/sign-up'> Sign up</Link>
-							</span>
-						) : (
-							<span>
-								Already have an account?
-								<Link to='/login'> Login</Link>
-							</span>
-						)}
+
+						<TypeMessage type={type} />
 					</Form>
 				)}
 			</Formik>

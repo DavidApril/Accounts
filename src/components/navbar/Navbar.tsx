@@ -1,6 +1,3 @@
-import React from 'react';
-
-import { PublicRoutes } from '../../navegation/routes';
 import { NavLink } from 'react-router-dom';
 
 import './Navbar.css';

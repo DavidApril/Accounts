@@ -1,17 +1,20 @@
-import { CustomForm } from '../../components/custom/form/Form';
-import { CustomInput } from '../../components/custom/input/Input';
-import { GoogleButton } from '../../components/google-sesion/Google';
+import registerForm from '../../data/registerForm.json';
+import { CustomForm, GoogleButton, CustomInput } from '../../components';
 
 import './SignUpPage.css';
 
-export const SignUpPage = () => {
-	const initalValues = [{}];
+const initalValues: { [x: string]: any } = {};
 
+for (const input of registerForm) {
+	initalValues[input.name] = input.value;
+}
+
+export const SignUpPage = () => {
 	return (
 		<section className='signup-page'>
 			<div className='signup-form'>
 				<CustomForm
-					initalValues={[{}]}
+					initalValues={initalValues}
 					buttonName='Sign up'
 					type='register'>
 					{() => (
@@ -23,20 +26,20 @@ export const SignUpPage = () => {
 							</h3>
 							<GoogleButton />
 							<span>or</span>
-							<CustomInput
-								label='Username'
-								name='username'
-								placeholder='bruceWayne27'
-							/>
-							<CustomInput
-								label='Email'
-								name='email'
-								placeholder='batman@gotham.com'
-							/>
-							<CustomInput
-								label='Password'
-								name='password'
-								placeholder='***********'></CustomInput>
+
+							{registerForm.map(({ label, name, type, placeholder }) => {
+								if (type === 'text' || type === 'password' || type === 'email') {
+									return (
+										<CustomInput
+											key={name}
+											label={label}
+											name={name}
+											type={type}
+											placeholder={placeholder}
+										/>
+									);
+								}
+							})}
 						</>
 					)}
 				</CustomForm>
