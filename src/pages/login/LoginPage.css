@@ -47,3 +47,9 @@ mark, mark > a {
 mark > a:hover{
 	opacity: 100%;
 }
+
+mark > a:focus{
+	color: var(--third-color);
+	font-weight: bold;
+	font-size: 18px;
+}

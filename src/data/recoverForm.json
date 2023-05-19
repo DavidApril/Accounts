@@ -2,7 +2,7 @@
 	{
 		"type": "email",
 		"name": "email",
-		"placeholder": "Enter your email",
+		"placeholder": "",
 		"label": "Email",
 		"value": "",
 		"validations": [
@@ -13,5 +13,5 @@
 				"type": "email"
 			}
 		]
-	}	
+	}
 ]

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import './Navbar.css';
 import { LogoSVG } from '../Logo/Logo';
@@ -8,7 +8,9 @@ export const Navbar = () => {
 		<nav className='navbar'>
 			<div className='content'>
 				<div className='logo'>
-					<LogoSVG />
+					<Link to='/home'>
+						<LogoSVG />
+					</Link>
 				</div>
 				<ul className='menu'>
 					<li>

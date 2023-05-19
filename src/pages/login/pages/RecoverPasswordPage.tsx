@@ -1,34 +1,44 @@
+import recoverForms from '../../../data/recoverForm.json';
 import { CustomForm, CustomInput } from '../../../components';
+import useFormValidation from '../../../hooks/useFormValidation';
+
 import './RecoverPasswordPage.css';
-import RecoverFields from '../../../data/recoverForm.json';
-
-const initalValues: { [x: string]: any } = {};
-
-for (const input of RecoverFields) {
-	initalValues[input.name] = input.value;
-}
+import { useNavigate } from 'react-router-dom';
 
 export const RecoverPasswordPage = () => {
+	const { initialValues, validationSchema } = useFormValidation(recoverForms);
+
+	const handleSubmit = (values: any) => {
+		console.log(values);
+	};
+
 	return (
 		<section className='recover-password-page'>
 			<CustomForm
-				initalValues={initalValues}
-				buttonName='Recover'
+				validationSchema={validationSchema}
+				initialValues={initialValues}
+				buttonName='Send email'
+				onSubmit={handleSubmit}
 				type='recover'>
 				{() => (
 					<>
 						<figure className='forgot-password-message'>
-							<h3>Forgot passoword?</h3>
+							<h3>Forgot password?</h3>
 							<figcaption>No worries, we'll send you reset instructions</figcaption>
 						</figure>
-						{RecoverFields.map(({ label, name, type }) => (
-							<CustomInput
-								key={name}
-								label={label}
-								name={name}
-								type={type}
-							/>
-						))}
+						{recoverForms.map(({ label, name, type, placeholder }) => {
+							if (type === 'text' || type === 'password' || type === 'email') {
+								return (
+									<CustomInput
+										key={name}
+										label={label}
+										name={name}
+										type={type}
+										placeholder={placeholder}
+									/>
+								);
+							}
+						})}
 					</>
 				)}
 			</CustomForm>

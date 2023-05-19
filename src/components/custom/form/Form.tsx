@@ -1,24 +1,34 @@
-import { Formik, Form } from 'formik';
+import { Formik, Form, FormikHelpers } from 'formik';
 import './Form.css';
-import validationSchema from './validations';
 import { TypeMessage } from '..';
+import * as Yup from 'yup';
+
 interface Props {
 	buttonName: string;
 	className?: string;
 	style?: React.CSSProperties;
 	children: (Args: any) => JSX.Element | React.ReactElement[];
-	initalValues: { [x: string]: any };
+	initialValues: { [x: string]: any };
 	type: 'login' | 'register' | 'recover';
+	onSubmit: (argr: any) => void;
+	validationSchema: Yup.ObjectSchema<
+		{
+			[x: string]: any;
+		},
+		Yup.AnyObject,
+		{
+			[x: string]: any;
+		},
+		''
+	>;
 }
 
-export const CustomForm = ({ buttonName, className, style, children, initalValues, type }: Props) => {
+export const CustomForm = ({ buttonName, className, style, children, initialValues, type, onSubmit, validationSchema }: Props) => {
 	return (
 		<>
 			<Formik
-				initialValues={initalValues}
-				onSubmit={(values) => {
-					// console.log(values);
-				}}
+				initialValues={initialValues}
+				onSubmit={(values) => onSubmit(values)}
 				validationSchema={validationSchema}>
 				{(formik) => (
 					<Form
@@ -28,7 +38,6 @@ export const CustomForm = ({ buttonName, className, style, children, initalValue
 						{typeof children === 'function' ? children(formik) : children}
 
 						<button type='submit'>{buttonName}</button>
-
 						<TypeMessage type={type} />
 					</Form>
 				)}

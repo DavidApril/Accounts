@@ -1,7 +1,4 @@
 import { LazyExoticComponent, lazy } from 'react';
-import { HomePage } from '../pages/home/HomePage';
-import LoginPage from '../pages/login/LoginPage';
-import SignUpPage from '../pages/sign-up/SignUpPage';
 
 type JSXElement = () => JSX.Element;
 
@@ -12,8 +9,10 @@ interface Route {
 	name: string;
 }
 
-// const LoginPage = lazy(() => import('../pages/login/LoginPage'));
-// const SignUpPage = lazy(() => import('../pages/sign-up/SignUpPage'));
+const HomePage = lazy(() => import('../pages/home/HomePage'));
+const LoginPage = lazy(() => import('../pages/login/LoginPage'));
+const SignUpPage = lazy(() => import('../pages/sign-up/SignUpPage'));
+const PrivacyPage = lazy(() => import('../pages/privacy/PrivacyPage'));
 
 export const PublicRoutes: Route[] = [
 	{
@@ -33,5 +32,11 @@ export const PublicRoutes: Route[] = [
 		path: '/login/*',
 		Component: LoginPage,
 		name: 'Login',
+	},
+	{
+		to: 'privacy',
+		path: 'privacy',
+		Component: PrivacyPage,
+		name: 'Privacy',
 	},
 ];

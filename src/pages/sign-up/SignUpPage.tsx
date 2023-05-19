@@ -2,20 +2,23 @@ import registerForm from '../../data/registerForm.json';
 import { CustomForm, GoogleButton, CustomInput } from '../../components';
 
 import './SignUpPage.css';
-
-const initalValues: { [x: string]: any } = {};
-
-for (const input of registerForm) {
-	initalValues[input.name] = input.value;
-}
+import useFormValidation from '../../hooks/useFormValidation';
 
 export const SignUpPage = () => {
+	const { initialValues, validationSchema } = useFormValidation(registerForm);
+
+	const handleSubmit = (values: any) => {
+		console.log(values);
+	};
+
 	return (
-		<section className='signup-page'>
+		<section className='signup-page' >
 			<div className='signup-form'>
 				<CustomForm
-					initalValues={initalValues}
+					validationSchema={validationSchema}
+					initialValues={initialValues}
 					buttonName='Sign up'
+					onSubmit={handleSubmit}
 					type='register'>
 					{() => (
 						<>
@@ -25,6 +28,7 @@ export const SignUpPage = () => {
 								<span>Enter the fields below to get started</span>
 							</h3>
 							<GoogleButton />
+
 							<span>or</span>
 
 							{registerForm.map(({ label, name, type, placeholder }) => {

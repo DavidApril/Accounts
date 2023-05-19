@@ -1,3 +1,4 @@
+export { Loader } from "./Loader/Loader";
 export { CustomForm, CustomInput } from "./custom";
 export { Footer } from "./footer/Footer";
 export { GoogleButton } from "./google-sesion/Google";

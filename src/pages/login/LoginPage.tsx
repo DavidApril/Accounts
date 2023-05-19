@@ -1,16 +1,20 @@
-import './LoginPage.css';
 import loginForm from '../../data/LoginForm.json';
+
+import { RecoverPasswordPage } from './pages/RecoverPasswordPage';
 import { CustomForm, GoogleButton, CustomInput } from '../../components';
 import { Link, Route, Routes } from 'react-router-dom';
-import { RecoverPasswordPage } from './pages/RecoverPasswordPage';
+import useFormValidation from '../../hooks/useFormValidation';
 
-const initalValues: { [x: string]: any } = {};
-
-for (const input of loginForm) {
-	initalValues[input.name] = input.value;
-}
+import './LoginPage.css';
 
 export const LoginPage = () => {
+	
+	const { initialValues, validationSchema } = useFormValidation(loginForm);
+
+	const handleSubmit = (values: any) => {
+		console.log(values);
+	};
+
 	return (
 		<section className='login-page'>
 			<div className='login-page-text'>
@@ -20,9 +24,11 @@ export const LoginPage = () => {
 			</div>
 			<div className='login-form'>
 				<CustomForm
-					initalValues={initalValues}
-					buttonName='Login'
-					type='login'>
+					initialValues={initialValues}
+					validationSchema={validationSchema}
+					buttonName='Sign up'
+					onSubmit={handleSubmit}
+					type='register'>
 					{() => (
 						<>
 							<h3>

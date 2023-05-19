@@ -9,6 +9,7 @@
 .text {
 	font-size: 36px;
 	text-align: center;
+	animation: EnterForms 0.5s 1s both;
 }
 
 .text b {
